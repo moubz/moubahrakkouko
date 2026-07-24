@@ -840,6 +840,63 @@
             transform: translateY(-2px);
         }
 
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 36px;
+        }
+        .project-card {
+            background: var(--color-surface);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            background: var(--color-surface-hover);
+            border-color: rgba(74, 124, 255, 0.12);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .project-card .project-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .project-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .project-card p {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .project-card .project-link {
+            font-size: 0.8rem;
+            color: var(--color-primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .project-card .project-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover .project-link::after {
+            transform: translateX(4px);
+        }
+
         /* ===== QUALITIES & INTERESTS ===== */
         .qi-grid {
             display: grid;
@@ -1000,7 +1057,6 @@
         /* ===== RESPONSIVE ===== */
         /* ============================================================== */
 
-        /* Tablette & petit desktop */
         @media (max-width: 1024px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -1029,7 +1085,6 @@
                 width: 80px;
                 height: 80px;
             }
-
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1041,6 +1096,9 @@
             .qi-grid {
                 grid-template-columns: 1fr;
                 gap: 24px;
+            }
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
         }
 
@@ -1059,7 +1117,6 @@
                 width: 16px;
                 height: 16px;
             }
-
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -1087,7 +1144,6 @@
                 font-size: 1.05rem;
                 padding: 6px 0;
             }
-
             .hero {
                 padding: 120px 0 60px;
                 min-height: auto;
@@ -1111,15 +1167,12 @@
             .hero-stats-item .number {
                 font-size: 1.2rem;
             }
-
             section {
                 padding: 60px 0;
             }
-
             .about-cards {
                 grid-template-columns: 1fr 1fr;
             }
-
             .timeline {
                 padding-left: 18px;
             }
@@ -1135,25 +1188,24 @@
             .timeline-item ul {
                 padding-left: 12px;
             }
-
             .edu-grid {
                 grid-template-columns: 1fr;
             }
-
             .skills-wrapper {
                 grid-template-columns: 1fr 1fr;
                 gap: 16px;
             }
-
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
             .contact-map {
                 min-height: 160px;
                 padding: 24px 20px;
             }
-
             .container {
                 padding: 0 16px;
             }
-
             .btn {
                 padding: 12px 24px;
                 font-size: 0.85rem;
@@ -1176,7 +1228,6 @@
                 width: 14px;
                 height: 14px;
             }
-
             .hero {
                 padding: 100px 0 40px;
             }
@@ -1222,23 +1273,23 @@
                 padding: 12px 20px;
                 font-size: 0.85rem;
             }
-
             .about-cards {
                 grid-template-columns: 1fr;
             }
-
             .skills-wrapper {
                 grid-template-columns: 1fr;
                 gap: 12px;
             }
-
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
             .section-title {
                 font-size: 1.4rem;
             }
             .section-desc {
                 font-size: 0.9rem;
             }
-
             .contact-item {
                 font-size: 0.85rem;
                 gap: 10px;
@@ -1247,7 +1298,6 @@
                 width: 28px;
                 font-size: 1rem;
             }
-
             .qi-block {
                 padding: 24px 18px;
             }
@@ -1255,7 +1305,6 @@
                 font-size: 0.78rem;
                 padding: 4px 14px;
             }
-
             .edu-card {
                 padding: 20px 18px;
             }
@@ -1266,16 +1315,16 @@
                 font-size: 0.7rem;
                 padding: 4px 12px;
             }
-
+            .project-card {
+                padding: 20px 18px;
+            }
             .footer {
                 font-size: 0.7rem;
                 padding: 20px 0;
             }
-
             .container {
                 padding: 0 12px;
             }
-
             .timeline-item ul {
                 padding-left: 8px;
                 font-size: 0.85rem;
@@ -1333,7 +1382,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#profil">Profil</a></li>
                 <li><a href="#experience">Expérience</a></li>
-                <li><a href="#education">Formation</a></li>
+                <li><a href="#projects">Projets</a></li>
                 <li><a href="#skills">Compétences</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -1355,7 +1404,7 @@
                     </h1>
                     <p class="hero-sub reveal visible reveal-d1">
                         Conception d'applications web, mobiles et de solutions innovantes.
-                        Expertise en Laravel, PHP, JavaScript et Flutter.
+                        Expertise en Laravel, PHP, JavaScript, React, Next.js et Flutter.
                     </p>
                     <div class="hero-actions reveal visible reveal-d2">
                         <a href="#experience" class="btn btn-primary">Voir mon parcours</a>
@@ -1407,7 +1456,7 @@
                         Titulaire d'une Licence Professionnelle en Science Informatique, je possède une solide expérience dans le développement de plateformes métiers, systèmes de gestion, applications mobiles et API complexes.
                     </p>
                     <p>
-                        Spécialisé en <strong>Laravel, PHP, JavaScript et Flutter</strong>, je maîtrise l'ensemble du cycle de développement logiciel : analyse, conception, développement, intégration API, déploiement et maintenance.
+                        Spécialisé en <strong>Laravel, PHP, JavaScript, React, Next.js et Flutter</strong>, je maîtrise l'ensemble du cycle de développement logiciel : analyse, conception, développement, intégration API, déploiement et maintenance.
                         J'ai l'habitude de travailler en équipe avec <strong>Git/GitLab</strong> sur des projets collaboratifs à forte valeur ajoutée.
                     </p>
                 </div>
@@ -1423,14 +1472,14 @@
                         <p>Backend robuste</p>
                     </div>
                     <div class="about-card">
+                        <span class="icon">⚛️</span>
+                        <h4>React / Next.js</h4>
+                        <p>Frontend moderne</p>
+                    </div>
+                    <div class="about-card">
                         <span class="icon">📱</span>
                         <h4>Flutter</h4>
                         <p>Applications mobiles</p>
-                    </div>
-                    <div class="about-card">
-                        <span class="icon">🤝</span>
-                        <h4>Git / GitLab</h4>
-                        <p>Travail collaboratif</p>
                     </div>
                 </div>
             </div>
@@ -1497,34 +1546,40 @@
         </div>
     </section>
 
-    <!-- ===== EDUCATION ===== -->
-    <section id="education">
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
         <div class="container">
-            <div class="section-glow" style="top:20%;left:50%;transform:translateX(-50%);"></div>
+            <div class="section-glow" style="top:20%;left:30%;"></div>
             <div class="reveal">
-                <span class="section-label">Formation</span>
-                <h2 class="section-title">Parcours <span class="highlight">académique</span></h2>
-                <p class="section-desc">Une base solide en informatique et en ingénierie logicielle.</p>
+                <span class="section-label">Réalisations</span>
+                <h2 class="section-title">Projets <span class="highlight">phares</span></h2>
+                <p class="section-desc">Quelques projets que j'ai conçus et développés pour mes clients.</p>
             </div>
-            <div class="edu-grid">
-                <div class="edu-card reveal reveal-scale">
-                    <div class="year">2019 – 2020</div>
-                    <h4>Licence Professionnelle en Science Informatique</h4>
-                    <div class="school">ITA Ingénierie SA</div>
-                    <p>Formation approfondie en développement logiciel, bases de données, et architectures d'applications.</p>
-                </div>
-                <div class="edu-card reveal reveal-scale reveal-d1">
-                    <div class="year">2017 – 2019</div>
-                    <h4>DTS en Informatique Développement d'Applications</h4>
-                    <div class="school">ITA Ingénierie SA</div>
-                    <p>Spécialisation en conception d'applications, programmation orientée objet et technologies web.</p>
-                </div>
-                <div class="edu-card reveal reveal-scale reveal-d2">
-                    <div class="year">2016 – 2017</div>
-                    <h4>Baccalauréat Série D</h4>
-                    <div class="school">Collège CHBR de Sokodé</div>
-                    <p>Formation scientifique avec spécialisation en mathématiques et sciences expérimentales.</p>
-                </div>
+            <div class="projects-grid">
+                <a href="https://dissmarexpertisedigitale.com/" target="_blank" rel="noopener noreferrer" class="project-card reveal reveal-scale">
+                    <span class="project-icon">📊</span>
+                    <h4>Dissmar Expertise Digitale</h4>
+                    <p>Site de présentation des services d'une agence de marketing digital. Vitrine moderne et responsive.</p>
+                    <span class="project-link">Voir le projet</span>
+                </a>
+                <a href="https://vlink.app/" target="_blank" rel="noopener noreferrer" class="project-card reveal reveal-scale reveal-d1">
+                    <span class="project-icon">📇</span>
+                    <h4>Vlink</h4>
+                    <p>Plateforme de vente, d'achat et de configuration de cartes de visite connectées NFC. Solution innovante.</p>
+                    <span class="project-link">Voir le projet</span>
+                </a>
+                <a href="https://usante.net/api" target="_blank" rel="noopener noreferrer" class="project-card reveal reveal-scale reveal-d2">
+                    <span class="project-icon">🏥</span>
+                    <h4>Usante API</h4>
+                    <p>API centralisée pour la gestion des données patients dans différents centres de santé. Architecture robuste.</p>
+                    <span class="project-link">Voir le projet</span>
+                </a>
+                <a href="https://academieperformancefc.net/" target="_blank" rel="noopener noreferrer" class="project-card reveal reveal-scale reveal-d3">
+                    <span class="project-icon">⚽</span>
+                    <h4>Académie Performance FC</h4>
+                    <p>Site de présentation d'une académie de football. Design dynamique et informations structurées.</p>
+                    <span class="project-link">Voir le projet</span>
+                </a>
             </div>
         </div>
     </section>
@@ -1560,8 +1615,19 @@
                         <span class="skill-tag">Responsive Design</span>
                     </div>
                 </div>
-                <!-- Mobile -->
+                <!-- React & Next.js -->
                 <div class="skill-group reveal reveal-scale reveal-d2">
+                    <h4>⚛️ React &amp; Next.js</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">React Hooks</span>
+                        <span class="skill-tag">Server Components</span>
+                        <span class="skill-tag">API Routes</span>
+                    </div>
+                </div>
+                <!-- Mobile -->
+                <div class="skill-group reveal reveal-scale reveal-d3">
                     <h4>📱 Mobile</h4>
                     <div class="skill-tags">
                         <span class="skill-tag">Flutter</span>
@@ -1570,7 +1636,7 @@
                     </div>
                 </div>
                 <!-- Outils -->
-                <div class="skill-group reveal reveal-scale reveal-d3">
+                <div class="skill-group reveal reveal-scale reveal-d4">
                     <h4>🛠️ Outils</h4>
                     <div class="skill-tags">
                         <span class="skill-tag">Git / GitLab</span>
@@ -1631,7 +1697,7 @@
                     </p>
                     <div class="contact-item">
                         <span class="icon">📞</span>
-                        <span><span class="label">Téléphone :</span> <a href="tel:+2250586790077">+225 05 86 79 00 77</a></span>
+                        <span><span class="label">Téléphone :</span> <a href="tel:+22873064175">+228 73 06 41 75</a></span>
                     </div>
                     <div class="contact-item">
                         <span class="icon">✉️</span>
@@ -1651,7 +1717,7 @@
                     <h4>Grand-Bassam, Côte d'Ivoire</h4>
                     <p>Disponible pour des missions à distance ou sur site</p>
                     <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
-                        <span style="background:rgba(255,255,255,0.04);padding:4px 16px;border-radius:100px;font-size:0.75rem;color:var(--color-text-muted);border:1px solid rgba(255,255,255,0.04);">📱 +225 05 86 79 00 77</span>
+                        <span style="background:rgba(255,255,255,0.04);padding:4px 16px;border-radius:100px;font-size:0.75rem;color:var(--color-text-muted);border:1px solid rgba(255,255,255,0.04);">📱 +228 73 06 41 75</span>
                         <span style="background:rgba(255,255,255,0.04);padding:4px 16px;border-radius:100px;font-size:0.75rem;color:var(--color-text-muted);border:1px solid rgba(255,255,255,0.04);">✉️ moubarakkouko63@gmail.com</span>
                     </div>
                 </div>
@@ -1751,7 +1817,6 @@
             function animate() {
                 ctx.clearRect(0, 0, w, h);
 
-                // Subtle gradient overlay
                 const grad = ctx.createRadialGradient(w * 0.3, h * 0.2, 0, w * 0.5, h * 0.5, w * 0.7);
                 grad.addColorStop(0, 'rgba(74, 124, 255, 0.02)');
                 grad.addColorStop(1, 'rgba(0,0,0,0)');
@@ -1884,7 +1949,7 @@
 
         console.log('🚀 Moubahrak Kouko · Full Stack Developer');
         console.log('📧 moubarakkouko63@gmail.com');
-        console.log('📞 +225 05 86 79 00 77');
+        console.log('📞 +228 73 06 41 75');
     </script>
 
 </body>
